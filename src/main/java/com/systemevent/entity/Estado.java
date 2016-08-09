@@ -152,9 +152,11 @@ public class Estado implements Serializable {
         return true;
     }
 
+    
+    /*---Retorna el nombre del Estado para ser mostrado en la vista del select----*/
     @Override
     public String toString() {
-        return "com.systemevent.entity.Estado[ codigoEstado=" + codigoEstado + " ]";
+        return nombre;
     }
     
 }

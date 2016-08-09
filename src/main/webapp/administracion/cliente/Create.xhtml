@@ -24,24 +24,28 @@
                         <p:inputText id="rif" value="#{clienteController.selected.rif}" title="#{bundle.CreateClienteTitle_rif}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_rif}"/>
                         <p:outputLabel value="#{bundle.CreateClienteLabel_direccion}" for="direccion" />
                         <p:inputText id="direccion" value="#{clienteController.selected.direccion}" title="#{bundle.CreateClienteTitle_direccion}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_direccion}"/>
-                        <p:outputLabel value="#{bundle.CreateClienteLabel_codigoMunicipio}" for="codigoMunicipio" />
-                        <p:selectOneMenu id="codigoMunicipio" value="#{clienteController.selected.codigoMunicipio}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoMunicipio}">
-                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
-                                           var="codigoMunicipioItem"
-                                           itemValue="#{codigoMunicipioItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateClienteLabel_codigoEstado}" for="codigoEstado" />
-                        <p:selectOneMenu id="codigoEstado" value="#{clienteController.selected.codigoEstado}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoEstado}">
-                            <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"
-                                           var="codigoEstadoItem"
-                                           itemValue="#{codigoEstadoItem}"/>
-                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateClienteLabel_codigoPais}" for="codigoPais" />
                         <p:selectOneMenu id="codigoPais" value="#{clienteController.selected.codigoPais}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoPais}">
                             <f:selectItems value="#{paisController.itemsAvailableSelectOne}"
                                            var="codigoPaisItem"
                                            itemValue="#{codigoPaisItem}"/>
                         </p:selectOneMenu>
+                         <p:outputLabel value="#{bundle.CreateClienteLabel_codigoEstado}" for="codigoEstado" />
+                        <p:selectOneMenu id="codigoEstado" value="#{clienteController.selected.codigoEstado}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoEstado}">
+                            <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"
+                                           var="codigoEstadoItem"
+                                           itemValue="#{codigoEstadoItem}"/>
+                        </p:selectOneMenu>                        
+                        <p:outputLabel value="#{bundle.CreateClienteLabel_codigoMunicipio}" for="codigoMunicipio" />
+                        <p:selectOneMenu id="codigoMunicipio" value="#{clienteController.selected.codigoMunicipio}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoMunicipio}">
+                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
+                                           var="codigoMunicipioItem"
+                                           itemValue="#{codigoMunicipioItem}"/>
+                        </p:selectOneMenu>
+                        
+                       
+                        
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{clienteController.create}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args,'ClienteCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ClienteCreateDialog.hide()"/>

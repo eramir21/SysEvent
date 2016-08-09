@@ -154,9 +154,10 @@ public class Pais implements Serializable {
         return true;
     }
 
+    /*---Retorna el nombre del Pais para ser mostrado en la vista del select----*/
     @Override
     public String toString() {
-        return "com.systemevent.entity.Pais[ codigoPais=" + codigoPais + " ]";
+        return nombre;
     }
     
 }

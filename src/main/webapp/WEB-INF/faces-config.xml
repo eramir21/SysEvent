@@ -9,4 +9,21 @@
             <var>bundle</var>
         </resource-bundle>
     </application>
+    
+    <navigation-rule>            
+        <navigation-case>
+            <from-outcome>crear_cliente_form</from-outcome>
+            <to-view-id>/administracion/cliente/Create.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>    
+    <navigation-rule>            
+        <navigation-case>
+            <from-outcome>consulta_cliente_form</from-outcome>
+            <to-view-id>/administracion/cliente/List.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    
 </faces-config>

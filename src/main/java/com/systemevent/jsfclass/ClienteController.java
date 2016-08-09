@@ -120,6 +120,16 @@ public class ClienteController implements Serializable {
     public List<Cliente> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
+    
+    
+    public String consultarForm() {
+       return "consulta_cliente_form";
+    }
+    
+    public String crearForm() {
+       return "crear_cliente_form";
+    }
+    
 
     @FacesConverter(forClass = Cliente.class)
     public static class ClienteControllerConverter implements Converter {

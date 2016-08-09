@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <body>
+
+        <h:form>
+            <p:growl id="messages" autoUpdate="true" />  
+
+            <p:panelMenu style="width:220px" model="">  
+                <p:submenu label="Clientes">  
+                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="#{clienteController.crearForm()}"/>  
+                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" /> 
+                    <p:menuitem value="Consultar"  icon="ui-icon-search" action="#{clienteController.consultarForm()}"/>    
+                </p:submenu>  
+
+                <p:submenu label="Eventos">  
+                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
+                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
+                    <p:menuitem value="Consultar" icon="ui-icon-search" action="algo"/>   
+                </p:submenu>  
+
+                <p:submenu label="Sistemas">  
+                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
+                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
+                    <p:menuitem value="Consultar" icon="ui-icon-search" action="algo"/>  
+                </p:submenu>  
+
+                <p:submenu label="Errores" >  
+                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
+                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
+                    <p:menuitem value="Consultar" icon="ui-icon-search" action="algo"/>     
+                </p:submenu>  
+
+                <p:submenu label="Dominios">  
+                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
+                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
+                    <p:menuitem value="Consultar" icon="ui-icon-search" action="algo"/>  
+                </p:submenu>  
+
+                <p:submenu label="Ambientes">  
+                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
+                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
+                    <p:menuitem value="Consultar" icon="ui-icon-search" action="algo"/>  
+                </p:submenu>
+
+            </p:panelMenu> 
+
+
+        </h:form>
+
+    </body>
+</html>
+
