@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EventoCreateDlg" widgetVar="EventoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEventoTitle}">
+            <h:form id="EventoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{eventoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_codigoEvento}" for="codigoEvento" />
+                        <p:inputText id="codigoEvento" value="#{eventoController.selected.codigoEvento}" title="#{bundle.CreateEventoTitle_codigoEvento}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_codigoEvento}"/>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{eventoController.selected.descripcion}" title="#{bundle.CreateEventoTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_descripcion}"/>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_cantidadPersonas}" for="cantidadPersonas" />
+                        <p:inputText id="cantidadPersonas" value="#{eventoController.selected.cantidadPersonas}" title="#{bundle.CreateEventoTitle_cantidadPersonas}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_cantidadPersonas}"/>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_ubicacion}" for="ubicacion" />
+                        <p:inputText id="ubicacion" value="#{eventoController.selected.ubicacion}" title="#{bundle.CreateEventoTitle_ubicacion}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_ubicacion}"/>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{eventoController.selected.fecha}" title="#{bundle.EditEventoTitle_fecha}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{eventoController.selected.estado}" title="#{bundle.CreateEventoTitle_estado}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_codigoTipoEvento}" for="codigoTipoEvento" />
+                        <p:selectOneMenu id="codigoTipoEvento" value="#{eventoController.selected.codigoTipoEvento}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoTipoEvento}">
+                            <f:selectItems value="#{tipoEventoController.itemsAvailableSelectOne}"
+                                           var="codigoTipoEventoItem"
+                                           itemValue="#{codigoTipoEventoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_codigoMunicipio}" for="codigoMunicipio" />
+                        <p:selectOneMenu id="codigoMunicipio" value="#{eventoController.selected.codigoMunicipio}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoMunicipio}">
+                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
+                                           var="codigoMunicipioItem"
+                                           itemValue="#{codigoMunicipioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_codigoEstado}" for="codigoEstado" />
+                        <p:selectOneMenu id="codigoEstado" value="#{eventoController.selected.codigoEstado}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoEstado}">
+                            <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"
+                                           var="codigoEstadoItem"
+                                           itemValue="#{codigoEstadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_codigoPais}" for="codigoPais" />
+                        <p:selectOneMenu id="codigoPais" value="#{eventoController.selected.codigoPais}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoPais}">
+                            <f:selectItems value="#{paisController.itemsAvailableSelectOne}"
+                                           var="codigoPaisItem"
+                                           itemValue="#{codigoPaisItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEventoLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{eventoController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_idCliente}">
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{eventoController.create}" value="#{bundle.Save}" update="display,:EventoListForm:datalist,:growl" oncomplete="handleSubmit(args,'EventoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EventoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
