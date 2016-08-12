@@ -204,7 +204,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "com.systemevent.entity.Cliente[ idCliente=" + idCliente + " ]";
+        return nombre;
     }
     
 }

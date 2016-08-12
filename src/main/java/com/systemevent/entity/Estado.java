@@ -156,7 +156,7 @@ public class Estado implements Serializable {
     /*---Retorna el nombre del Estado para ser mostrado en la vista del select----*/
     @Override
     public String toString() {
-        return nombre;
+        return nombre+" "+codigoEstado;
     }
     
 }

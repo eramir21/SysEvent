@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EventoEditDlg" widgetVar="EventoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEventoTitle}">
+            <h:form id="EventoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{eventoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEventoLabel_codigoEvento}" for="codigoEvento" />
+                        <p:inputText id="codigoEvento" value="#{eventoController.selected.codigoEvento}" title="#{bundle.EditEventoTitle_codigoEvento}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoEvento}"/>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{eventoController.selected.descripcion}" title="#{bundle.EditEventoTitle_descripcion}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_descripcion}"/>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_cantidadPersonas}" for="cantidadPersonas" />
+                        <p:inputText id="cantidadPersonas" value="#{eventoController.selected.cantidadPersonas}" title="#{bundle.EditEventoTitle_cantidadPersonas}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_cantidadPersonas}"/>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_ubicacion}" for="ubicacion" />
+                        <p:inputText id="ubicacion" value="#{eventoController.selected.ubicacion}" title="#{bundle.EditEventoTitle_ubicacion}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_ubicacion}"/>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{eventoController.selected.fecha}" title="#{bundle.EditEventoTitle_fecha}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{eventoController.selected.estado}" title="#{bundle.EditEventoTitle_estado}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_estado}"/>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_codigoTipoEvento}" for="codigoTipoEvento" />
+                        <p:selectOneMenu id="codigoTipoEvento" value="#{eventoController.selected.codigoTipoEvento}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoTipoEvento}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoEventoController.itemsAvailableSelectOne}"
+                                           var="codigoTipoEventoItem"
+                                           itemValue="#{codigoTipoEventoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_codigoMunicipio}" for="codigoMunicipio" />
+                        <p:selectOneMenu id="codigoMunicipio" value="#{eventoController.selected.codigoMunicipio}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoMunicipio}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
+                                           var="codigoMunicipioItem"
+                                           itemValue="#{codigoMunicipioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_codigoEstado}" for="codigoEstado" />
+                        <p:selectOneMenu id="codigoEstado" value="#{eventoController.selected.codigoEstado}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoEstado}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"
+                                           var="codigoEstadoItem"
+                                           itemValue="#{codigoEstadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_codigoPais}" for="codigoPais" />
+                        <p:selectOneMenu id="codigoPais" value="#{eventoController.selected.codigoPais}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoPais}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{paisController.itemsAvailableSelectOne}"
+                                           var="codigoPaisItem"
+                                           itemValue="#{codigoPaisItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEventoLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{eventoController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_idCliente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{eventoController.update}" value="#{bundle.Save}" update="display,:EventoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EventoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EventoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

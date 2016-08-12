@@ -125,7 +125,7 @@ public class TipoEvento implements Serializable {
 
     @Override
     public String toString() {
-        return "com.systemevent.entity.TipoEvento[ codigoTipoEvento=" + codigoTipoEvento + " ]";
+        return descripcion;
     }
     
 }
