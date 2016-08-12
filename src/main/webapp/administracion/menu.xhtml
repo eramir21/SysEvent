@@ -12,27 +12,19 @@
 
             <p:panelMenu style="width:220px" model="">  
                 <p:submenu label="Clientes">  
-                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="#{clienteController.crearForm()}"/>  
-                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" /> 
                     <p:menuitem value="Consultar"  icon="ui-icon-search" action="#{clienteController.consultarForm()}"/>    
                 </p:submenu>  
 
                 <p:submenu label="Eventos">  
-                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
-                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
                     <p:menuitem value="Consultar" icon="ui-icon-search" action="#{eventoController.consultarForm()}"/>   
                 </p:submenu>  
 
-                <p:submenu label="Sistemas">  
-                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
-                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
-                    <p:menuitem value="Consultar" icon="ui-icon-search" action="algo"/>  
+                <p:submenu label="Productos"> 
+                    <p:menuitem value="Consultar" icon="ui-icon-search" action="#{productoController.consultarForm()}"/>  
                 </p:submenu>  
 
-                <p:submenu label="Errores" >  
-                    <p:menuitem value="Crear"  icon="ui-icon-plus" action="algo"/>  
-                    <p:menuitem value="Modificar"  icon="ui-icon-pencil" action="algo"/> 
-                    <p:menuitem value="Consultar" icon="ui-icon-search" action="algo"/>     
+                <p:submenu label="Proveedores" >
+                    <p:menuitem value="Consultar" icon="ui-icon-search" action="#{proveedorController.consultarForm()}"/>     
                 </p:submenu>  
 
                 <p:submenu label="Dominios">  

@@ -6,7 +6,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/template2.xhtml">
+    <ui:define name="left_menu">
+        <ui:include src="../menu.xhtml"/>
+    </ui:define>
 
 
         <ui:define name="title">
@@ -14,8 +17,11 @@
         </ui:define>
 
         <ui:define name="body">
+             <div id="titulo_form">
+                    <h4>Modulo de Lista de Productos</h4>
+            </div>
             <h:form id="ProductoListForm">
-                <p:panel header="#{bundle.ListProductoTitle}">
+                
                     <p:dataTable id="datalist" value="#{productoController.items}" var="item"
                                  selectionMode="single" selection="#{productoController.selected}"
                                  paginator="true"
@@ -70,7 +76,7 @@
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{productoController.destroy}" update=":growl,datalist" disabled="#{empty productoController.selected}"/>
                         </f:facet>
                     </p:dataTable>
-                </p:panel>
+                
             </h:form>
 
             <ui:include src="Create.xhtml"/>

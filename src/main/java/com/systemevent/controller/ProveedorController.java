@@ -80,6 +80,10 @@ public class ProveedorController implements Serializable {
         }
         return items;
     }
+    
+    public String consultarForm() {
+       return "consulta_proveedor_form";
+    }
 
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {

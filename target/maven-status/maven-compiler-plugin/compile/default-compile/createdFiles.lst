@@ -44,7 +44,6 @@ com\systemevent\entity\Estado.class
 com\systemevent\controller\ProductoImagenController.class
 com\systemevent\entity\Estado_.class
 com\systemevent\controller\ProductoController.class
-.netbeans_automatic_build
 com\systemevent\controller\ProductoEventoController$ProductoEventoControllerConverter.class
 com\systemevent\dao\ProductoFacade.class
 com\systemevent\entity\ProductoImagen.class

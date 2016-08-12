@@ -41,4 +41,22 @@
     </navigation-rule>
     
     
+    <navigation-rule>            
+        <navigation-case>
+            <from-outcome>consulta_producto_form</from-outcome>
+            <to-view-id>/administracion/producto/List.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    
+       <navigation-rule>            
+        <navigation-case>
+            <from-outcome>consulta_proveedor_form</from-outcome>
+            <to-view-id>/administracion/proveedor/List.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    
 </faces-config>

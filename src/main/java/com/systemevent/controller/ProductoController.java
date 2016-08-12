@@ -80,6 +80,10 @@ public class ProductoController implements Serializable {
         }
         return items;
     }
+    
+    public String consultarForm() {
+       return "consulta_producto_form";
+    }
 
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {
