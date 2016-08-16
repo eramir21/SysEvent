@@ -7,6 +7,7 @@ import com.systemevent.entity.Evento;
 import com.systemevent.jsfclass.util.JsfUtil;
 import com.systemevent.jsfclass.util.JsfUtil.PersistAction;
 import com.systemevent.dao.EventoFacade;
+import com.systemevent.jsfclass.util.PdfEvento;
 import com.systemevent.jsfclass.util.Util;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -140,53 +141,16 @@ public class EventoController implements Serializable {
         return getFacade().findAll();
     }
     
-    public Evento buscarPDF(java.lang.Integer id){
-            return getFacade().find(id);
-    }
+   
     
     
-       public void imprimir(int a) {
-           Evento event = buscarPDF(a);
-         
-           //buscarPDF(n);
-        try {
-            //Generamos el archivo PDF
-            String directorioArchivos;
-            ServletContext ctx = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-            directorioArchivos = ctx.getRealPath("\'") + "reports";
-            String name = directorioArchivos + "\'document-report.pdf";
-            //String name="C:\\Users\\Jose_Gascon\\Documents\\NetBeansProjects\\SystemEvent\\target\\SystemEvent-1.0-SNAPSHOT\\reports\\document-report.pdf";
-            Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream(name));
-            document.open();
-            
-            document.add(new Paragraph("Visita http://rolandopalermo.blogspot.com"));
-            document.add(new Paragraph("Nombre: " + event.getDescripcion()));
-            document.add(new Paragraph("Tipo: " + event.getUbicacion()));
-            document.add(new Paragraph("Precio neto: " +event.getCodigoPais().getNombre()));
-            document.add(new Paragraph("Valor neto: " + "prueba"));
-            document.add(new Paragraph("Síguenos en http://facebook.com/blog.rolandopalermo"));
-            document.close();
-            //----------------------------
-            //Abrimos el archivo PDF
-            FacesContext context = FacesContext.getCurrentInstance();
-            HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
-            response.setContentType("application/pdf");
-            response.setHeader("Content-disposition",
-                    "inline=filename=" + name);
-            try {
-                response.getOutputStream().write(Util.getBytesFromFile(new File(name)));  
-                response.getOutputStream().flush();
-                response.getOutputStream().close();
-                context.responseComplete();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void crearPdf(int id){
+        Evento event = getEvento(id);
+        PdfEvento pdfevent = new PdfEvento();
+        pdfevent.imprimirPdf(event);
+    
     }
-
+    
     @FacesConverter(forClass = Evento.class)
     public static class EventoControllerConverter implements Converter {
 

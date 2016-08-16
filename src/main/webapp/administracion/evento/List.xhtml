@@ -106,7 +106,7 @@
                 
                         <p:column>
                              <p:commandButton value="PDF" id="ajax"  
-                                              actionListener="#{eventoController.imprimir(item.codigoEvento)}" ajax="false"/>
+                                              actionListener="#{eventoController.crearPdf(item.codigoEvento)}" ajax="false"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{eventoController.prepareCreate}" update=":EventoCreateForm" oncomplete="PF('EventoCreateDialog').show()"/>

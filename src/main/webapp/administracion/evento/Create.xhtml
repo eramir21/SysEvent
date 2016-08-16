@@ -5,6 +5,10 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <h:outputScript library="js" name="calendar-espanol.js"/>
+    </h:head>
 
     <ui:composition>
 
@@ -23,7 +27,7 @@
                         <p:inputTextarea rows="4" cols="30"  maxlength="70" counterTemplate="{0} characters remaining." autoResize="false"  id="ubicacion" value="#{eventoController.selected.ubicacion}" title="#{bundle.CreateEventoTitle_ubicacion}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_ubicacion}"/>
   
                         <p:outputLabel value="#{bundle.CreateEventoLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{eventoController.selected.fecha}" title="#{bundle.EditEventoTitle_fecha}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fecha}" showOn="button"/>
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" locale="es" value="#{eventoController.selected.fecha}" title="#{bundle.EditEventoTitle_fecha}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fecha}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEventoLabel_estado}" for="estado" />
                         <p:inputText id="estado" value="#{eventoController.selected.estado}" title="#{bundle.CreateEventoTitle_estado}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_estado}"/>
                         <p:outputLabel value="#{bundle.CreateEventoLabel_codigoTipoEvento}" for="codigoTipoEvento" />
