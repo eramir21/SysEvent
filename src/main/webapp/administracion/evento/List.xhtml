@@ -104,9 +104,15 @@
                             <h:outputText value="#{item.idCliente.nombre}"/>
                         </p:column>
                 
+                        
                         <p:column>
-                             <p:commandButton value="PDF" id="ajax"  
-                                              actionListener="#{eventoController.crearPdf(item.codigoEvento)}" ajax="false"/>
+                          
+                      
+                            <h:commandLink actionListener="#{eventoController.crearPdf(item.codigoEvento)}" target="tlb">
+                                <p:graphicImage name="./imagenes/imgpdf.jpg" width="24"/>
+                                
+                            </h:commandLink>
+                               
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{eventoController.prepareCreate}" update=":EventoCreateForm" oncomplete="PF('EventoCreateDialog').show()"/>

@@ -1,0 +1,187 @@
+
+body{
+    font: normal 14px Verdana,Arial, Helvetica, Sans-serif !important;
+}
+
+
+
+#main_menu {
+    position: relative;
+}
+#content{
+    position: relative;
+    margin-top: 10px;
+}
+#left_menu{
+    float: left;
+    width: 200px;
+    font-size: 0.7em;
+    margin-left: 10px;
+}
+#right_content{
+    margin-left: 250px;
+    width:auto; 
+    position: relative;
+
+}
+#left_menu .ui-panel{
+    margin-bottom:5px; 
+}
+
+
+p.parrafo_1{
+    color: #808080;
+}
+span.span_1{
+    color: #FF0000;
+}
+label.etiqueta_1,label.etiqueta_2,p.parrafo_1,button.button_1,table.tabla_1,label.etiqueta_3{
+    font-size: 0.7em !important;
+}
+label.etiqueta_1 {
+    color:#0000FF;
+}
+label.etiqueta_2 {
+    color:blue;
+}
+
+.etiqueta_3{
+    color:red;
+}
+
+.columna{
+    width: 10px;
+}
+
+.cola{
+    width: 30px;
+}
+
+
+#messages_usuario{
+    position: absolute;
+    right: 20%;
+    top: 25%;
+    width: 350px;
+}
+
+#ambientes{
+    margin-left: 400px;
+    margin-top: -30px;
+    position: relative;
+
+
+}
+
+#datos_conexion{
+    color: blue;
+    margin-left: 400px;
+    margin-top: 30px;
+    font-weight:bold;
+
+
+}
+
+
+.alinear{
+    float: right;
+    border: 1px;
+    border-style: double;
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+    border-right-color: blue;
+    border-bottom-color: #FFF;
+
+}
+
+#tableee{
+    border: 1px;
+    border-style: double;
+    border-color: blue;
+
+}
+
+#tableee th{
+    border: 1px;
+    border-style: double;
+    border-color: blue;
+    color: blue;
+}
+
+#correo{
+    border: 1px;
+    border-style: double;
+    border-color: blue;
+
+}
+
+.ll{
+    border: 1px;
+    border-style: double;
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+    border-right-color: blue;
+    border-bottom-color: #FFF;
+}
+
+
+#Img_Usuario{
+    background-image: url('../imagenes/usuario.jpg');  
+    height: 225px;
+    width: 225px;
+    margin:auto;
+
+}
+
+
+#dominio{
+    float: right;
+    height: 100px;
+    width: 200px;
+    margin-right: 300px;
+    margin-top: -125px;
+
+}    
+
+#sist_origen{
+    float: right;
+    margin-right: 400px;
+    margin-top: -30px;
+}
+
+/*--------Nuevas------*/
+
+
+#tabMenu{
+
+    font-size: 0.7em;
+    border: 0px;
+    border-bottom:2px solid  !important;
+    border-radius:0px 0px 0px 0px;
+}
+#tabMenu .ui-tabmenu-nav{
+    background-color: #FFFFFF !important;
+    border-radius:0px 0px 0px 0px;
+    background-image: none;
+}
+
+#tabMenu .ui-tabmenu-nav .ui-tabmenuitem{
+    background-color: #FFF;
+    background-image: none;
+}
+#tabMenu .ui-tabmenu-nav   li:hover{
+    background-color: #000080 !important;
+}
+#tabMenu .ui-tabmenu-nav   a:hover{
+    color: white;
+}
+#tabMenu:hover{
+    border-bottom:2px solid #000080 !important;
+    color: #FFFFFF !important;
+}
+
+
+#titulo_form h4{
+    //color: #FF0000;
+}
+

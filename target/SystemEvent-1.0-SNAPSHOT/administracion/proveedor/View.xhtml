@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProveedorViewDlg" widgetVar="ProveedorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProveedorTitle}">
+            <h:form id="ProveedorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proveedorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProveedorLabel_codigoProveedor}"/>
+                        <h:outputText value="#{proveedorController.selected.codigoProveedor}" title="#{bundle.ViewProveedorTitle_codigoProveedor}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_nombre}"/>
+                        <h:outputText value="#{proveedorController.selected.nombre}" title="#{bundle.ViewProveedorTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_rif}"/>
+                        <h:outputText value="#{proveedorController.selected.rif}" title="#{bundle.ViewProveedorTitle_rif}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_email}"/>
+                        <h:outputText value="#{proveedorController.selected.email}" title="#{bundle.ViewProveedorTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_direccion}"/>
+                        <h:outputText value="#{proveedorController.selected.direccion}" title="#{bundle.ViewProveedorTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_telefonoFijo}"/>
+                        <h:outputText value="#{proveedorController.selected.telefonoFijo}" title="#{bundle.ViewProveedorTitle_telefonoFijo}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_telefonoLocal}"/>
+                        <h:outputText value="#{proveedorController.selected.telefonoLocal}" title="#{bundle.ViewProveedorTitle_telefonoLocal}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_estado}"/>
+                        <h:outputText value="#{proveedorController.selected.estado}" title="#{bundle.ViewProveedorTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_codigoMunicipio}"/>
+                        <h:outputText value="#{proveedorController.selected.codigoMunicipio}" title="#{bundle.ViewProveedorTitle_codigoMunicipio}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_codigoEstado}"/>
+                        <h:outputText value="#{proveedorController.selected.codigoEstado}" title="#{bundle.ViewProveedorTitle_codigoEstado}"/>
+                        <h:outputText value="#{bundle.ViewProveedorLabel_codigoPais}"/>
+                        <h:outputText value="#{proveedorController.selected.codigoPais}" title="#{bundle.ViewProveedorTitle_codigoPais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProveedorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
