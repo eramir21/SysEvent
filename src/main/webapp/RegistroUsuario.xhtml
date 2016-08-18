@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+
+        <ui:define name="body">
+
+            <h:form>
+                <p:growl id="mensaje" autoUpdate="false" severity="info,fatal" showSummary="true" showDetail="true"/>
+                <p:fieldset style="width: 80px" legend="Datos Personales">
+                    <h:panelGrid columns="3" id="pgdatos">
+                        <p:outputLabel for="txtnombres" value="nombres"/>
+                        <p:inputText id="txtnombres" value="#{usuarioController.persona.nombres}" required="true"/>
+                        <p:message for="txtnombres"/>
+
+                        <p:outputLabel for="txtapellidos" value="apellidos"/>
+                        <p:inputText id="txtapellidos" value="#{usuarioController.persona.apellidos}" required="true"/>
+                        <p:message for="txtapellidos"/>
+
+                        <p:outputLabel for="rdbsexo" value="sexo"/>
+                        <p:selectOneRadio id="rdbsexo" value="#{usuarioController.persona.sexo}" required="true">
+                            <f:selectItem itemValue="M" itemLabel="MASCULINO"/>
+                            <f:selectItem itemValue="F" itemLabel="FEMENINO"/>
+                        </p:selectOneRadio>
+                        <p:message for="rdbsexo"/>
+
+                        <p:outputLabel for="fechanac" value="Fecha Nacimiento"/>
+                        <p:calendar id="fechanac" value="#{usuarioController.persona.fechaNacimiento}" required="true"/>  
+                        <p:message for="fechanac"/>
+                    </h:panelGrid>
+                </p:fieldset>
+
+                <p:fieldset style="width: 80px" legend="Datos de la Cuenta">
+                    <h:panelGrid columns="3" id="pgcuenta">
+                        <p:outputLabel for="cbotipo" value="Tipo Cuenta"/>
+                        <p:selectOneMenu id="cbotipo" value="#{usuarioController.usuario.tipo}" required="true" requiredMessage="Campo requerido">
+                            <f:selectItem itemValue="A" itemLabel="Administrador"/>
+                            <f:selectItem itemValue="O" itemLabel="Operario"/>
+                        </p:selectOneMenu>
+                        <p:message for="cbotipo"/>
+
+                        <p:outputLabel for="txtusuario" value="Usuario"/>
+                        <p:inputText id="txtusuario" value="#{usuarioController.usuario.usuario}" required="true" requiredMessage="Campo requerido"/>
+                        <p:message for="txtusuario"/>
+
+                        <p:outputLabel for="clave1" value="Clave"/>
+                        <p:password id="clave1" value="#{usuarioController.usuario.clave}" required="true" requiredMessage="Campo requerido"
+                                    validatorMessage="Las claves no coinciden" weakLabel="Débil" strongLabel="Fuerte" goodLabel="bueno"
+                                    match="clave2" feedback="true" promptLabel="Ingrese una Clave"/>
+                        <p:message for="clave1"/>
+
+                        <p:outputLabel value="Repetir Clave"/>
+                        <p:password id="clave2" required="true" requiredMessage="Campo requerido"/>
+                        <p:message for="clave2"/>
+                    </h:panelGrid>
+
+                    <p:commandButton icon="ui-icon-check" value="Registrar" update="pgdatos,pgcuenta,mensaje" actionListener="#{usuarioController.registrar()}"/>
+                </p:fieldset>
+            </h:form>
+
+        </ui:define>
+
+    </ui:composition>
+</html>

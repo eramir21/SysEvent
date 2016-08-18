@@ -7,6 +7,7 @@ package com.systemevent.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
-    @NamedQuery(name = "Usuario.findByCodigo", query = "SELECT u FROM Usuario u WHERE u.codigo = :codigo"),
+    @NamedQuery(name = "Usuario.findByCodigoUsuario", query = "SELECT u FROM Usuario u WHERE u.codigoUsuario = :codigoUsuario"),
     @NamedQuery(name = "Usuario.findByUsuario", query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario"),
     @NamedQuery(name = "Usuario.findByClave", query = "SELECT u FROM Usuario u WHERE u.clave = :clave"),
     @NamedQuery(name = "Usuario.findByTipo", query = "SELECT u FROM Usuario u WHERE u.tipo = :tipo"),
@@ -40,8 +41,8 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigo")
-    private Integer codigo;
+    @Column(name = "codigo_usuario")
+    private Integer codigoUsuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -60,32 +61,32 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estado")
-    private boolean estado;
-    @JoinColumn(name = "codigo", referencedColumnName = "codigo", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    private int estado;
+    @JoinColumn(name = "codigo_usuario", referencedColumnName = "codigo_persona", insertable = false, updatable = false)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Persona persona;
 
     public Usuario() {
     }
 
-    public Usuario(Integer codigo) {
-        this.codigo = codigo;
+    public Usuario(Integer codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
     }
 
-    public Usuario(Integer codigo, String usuario, String clave, String tipo, boolean estado) {
-        this.codigo = codigo;
+    public Usuario(Integer codigoUsuario, String usuario, String clave, String tipo, int estado) {
+        this.codigoUsuario = codigoUsuario;
         this.usuario = usuario;
         this.clave = clave;
         this.tipo = tipo;
         this.estado = estado;
     }
 
-    public Integer getCodigo() {
-        return codigo;
+    public Integer getCodigoUsuario() {
+        return codigoUsuario;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setCodigoUsuario(Integer codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
     }
 
     public String getUsuario() {
@@ -112,11 +113,11 @@ public class Usuario implements Serializable {
         this.tipo = tipo;
     }
 
-    public boolean getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
@@ -131,7 +132,7 @@ public class Usuario implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash += (codigoUsuario != null ? codigoUsuario.hashCode() : 0);
         return hash;
     }
 
@@ -142,7 +143,7 @@ public class Usuario implements Serializable {
             return false;
         }
         Usuario other = (Usuario) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
+        if ((this.codigoUsuario == null && other.codigoUsuario != null) || (this.codigoUsuario != null && !this.codigoUsuario.equals(other.codigoUsuario))) {
             return false;
         }
         return true;
@@ -150,7 +151,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.systemevent.entity.Usuario[ codigo=" + codigo + " ]";
+        return "com.systemevent.entity.Usuario[ codigoUsuario=" + codigoUsuario + " ]";
     }
     
 }
