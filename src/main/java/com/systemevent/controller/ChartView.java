@@ -40,7 +40,7 @@ public class ChartView implements Serializable {
  
     private void createAnimatedModels() {
         animatedModel1 = initLinearModel();
-        animatedModel1.setTitle("Line Chart");
+        animatedModel1.setTitle("Eventos");
         animatedModel1.setAnimate(true);
         animatedModel1.setLegendPosition("se");
         Axis yAxis = animatedModel1.getAxis(AxisType.Y);
@@ -48,7 +48,7 @@ public class ChartView implements Serializable {
         yAxis.setMax(10);
          
         animatedModel2 = initBarModel();
-        animatedModel2.setTitle("Bar Charts");
+        animatedModel2.setTitle("Productos");
         animatedModel2.setAnimate(true);
         animatedModel2.setLegendPosition("ne");
         yAxis = animatedModel2.getAxis(AxisType.Y);
@@ -60,7 +60,7 @@ public class ChartView implements Serializable {
         BarChartModel model = new BarChartModel();
  
         ChartSeries boys = new ChartSeries();
-        boys.setLabel("Boys");
+        boys.setLabel("Hombres");
         boys.set("2004", 120);
         boys.set("2005", 100);
         boys.set("2006", 44);
@@ -68,7 +68,7 @@ public class ChartView implements Serializable {
         boys.set("2008", 25);
  
         ChartSeries girls = new ChartSeries();
-        girls.setLabel("Girls");
+        girls.setLabel("Mujeres");
         girls.set("2004", 52);
         girls.set("2005", 60);
         girls.set("2006", 110);
@@ -85,7 +85,7 @@ public class ChartView implements Serializable {
         LineChartModel model = new LineChartModel();
  
         LineChartSeries series1 = new LineChartSeries();
-        series1.setLabel("Series 1");
+        series1.setLabel("Bodas");
  
         series1.set(1, 2);
         series1.set(2, 1);
@@ -94,7 +94,7 @@ public class ChartView implements Serializable {
         series1.set(5, 8);
  
         LineChartSeries series2 = new LineChartSeries();
-        series2.setLabel("Series 2");
+        series2.setLabel("Cooporativos");
  
         series2.set(1, 6);
         series2.set(2, 3);

@@ -5,6 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+
     <ui:composition>
 
         <p:dialog  widgetVar="loginDialog"  resizable="false" header="LOGIN">
@@ -17,14 +18,15 @@
                         <p:inputText id="txtusuario" value="#{loginController.usuario.usuario}" required="true"/>
 
                         <p:outputLabel for="txtclave" value="Clave"/>
-                        <p:inputText id="txtclave" value="#{loginController.usuario.clave}" required="true"/>
+                        <p:password id="txtclave" value="#{loginController.usuario.clave}" required="true"/>
 
                         <h:column/>
                         <p:separator/>
                         <p:commandButton icon="ui-icon-key" value="Iniciar" actionListener="#{loginController.iniciarSesion()}" 
-                                         action="/protegido/principal.xhtml"
+                                         action="/protegido/principal.xhtml" onclick="start()"
                                          oncomplete="handleSubmit(args,'loginDialog');"/>              
                         <p:commandButton value="Cancelar" onclick="loginDialog.hide()"/>
+                         
                     </h:panelGrid>
                     
                 </h:panelGroup>

@@ -14,26 +14,36 @@
 
         <ui:define name="body">
 
-            
+        <h:panelGrid columns="3" columnClasses="left,right" style="width:100%">
+            <p:fieldset  legend="Estadisticas de los Eventos">
+                
+                    <p:chart type="line" model="#{chartView.animatedModel1}" style="width:350px;" />
+              
+            </p:fieldset>
+            <p:fieldset  legend="Galeria">
+                
+                    <p:imageSwitch effect="turnDown">
+                        <ui:repeat value="#{imagesView.images}" var="image">
+                            <p:graphicImage library="imagenes" name="#{image}" />
+                        </ui:repeat>
+                    </p:imageSwitch>
+                
+            </p:fieldset>
+            <p:fieldset  legend="Estadisticas de los Productos">
+               
+                    <p:chart type="bar" model="#{chartView.animatedModel2}" style="width:350px;" />
+               
+            </p:fieldset>
           
+           
+ </h:panelGrid>
 
-            <h:panelGrid columns="2" columnClasses="left,right" style="width:100%">
-                <p:chart type="line" model="#{chartView.animatedModel1}" style="width:400px;" />
-                <p:chart type="bar" model="#{chartView.animatedModel2}" style="width:400px;" />
-            </h:panelGrid>
-            
-            
-            
-              <p:imageSwitch effect="turnDown">
-                <ui:repeat value="#{imagesView.images}" var="image">
-                    <p:graphicImage library="imagenes" name="#{image}" />
-                </ui:repeat>
-            </p:imageSwitch>
+
+
+
         </ui:define>
 
-        <ui:define name="bottom">
-            <h1>pie index</h1>
-        </ui:define>
+      
 
     </ui:composition>
 
