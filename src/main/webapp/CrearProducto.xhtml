@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+          
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+
+   <ui:composition template="WEB-INF/templates/temphtml5.xhtml">
+
+
+        <ui:define name="body">
+            <section>
+            <div class="container">
+                <div class="shopper-informations">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="shopper-info">
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-5 clearfix">
+                            <div class="bill-to">
+                                <p>Registrar Producto</p>
+                               
+                                <div class="form-one">
+                                <form jsf:id="form1">
+                                    <input jsf:id="cproducto" type="number" placeholder="Codigo Producto" jsf:value="#{productoController.selected.codigoProducto}"/>
+                                    <input jsf:id="nombre" type="text" placeholder="Nombre Producto" jsf:value="#{productoController.selected.nombre}"/>
+                                    <input jsf:id="descripcion" type="text" placeholder="producto Descripcion" jsf:value="#{productoController.selected.descripcion}"/>
+                                    <input jsf:id="cantidad" type="number" placeholder="cantidad" jsf:value="#{productoController.selected.cantidad}"/>
+                                    <input jsf:id="precio" type="text" placeholder="Precio" jsf:value="#{productoController.selected.precioUnitario}"/>
+                                    <input jsf:id="codeproveedor" type="text" placeholder="codigo proveedor" jsf:value="#{productoController.selected.codigoProveedor}"/>
+
+                                    <button type="Submit" jsf:actionListener="#{productoController.create()}" class="btn btn-default btn-primary">Agregar</button>
+                                </form>
+                                </div>
+                                                     
+                               
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </section>    
+        </ui:define>
+
+    </ui:composition>
+
+</html>

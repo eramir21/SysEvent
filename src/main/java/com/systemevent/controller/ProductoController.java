@@ -4,12 +4,14 @@ import com.systemevent.entity.Producto;
 import com.systemevent.jsfclass.util.JsfUtil;
 import com.systemevent.jsfclass.util.JsfUtil.PersistAction;
 import com.systemevent.dao.ProductoFacade;
+import com.systemevent.entity.Evento;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
@@ -28,6 +30,13 @@ public class ProductoController implements Serializable {
     private List<Producto> items = null;
     private Producto selected;
 
+    
+    @PostConstruct
+    public void init(){
+        selected = new Producto();
+        
+    }
+    
     public ProductoController() {
     }
 

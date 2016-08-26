@@ -16,8 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -34,8 +33,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Persona.findByCodigoPersona", query = "SELECT p FROM Persona p WHERE p.codigoPersona = :codigoPersona"),
     @NamedQuery(name = "Persona.findByNombres", query = "SELECT p FROM Persona p WHERE p.nombres = :nombres"),
     @NamedQuery(name = "Persona.findByApellidos", query = "SELECT p FROM Persona p WHERE p.apellidos = :apellidos"),
-    @NamedQuery(name = "Persona.findBySexo", query = "SELECT p FROM Persona p WHERE p.sexo = :sexo"),
-    @NamedQuery(name = "Persona.findByFechaNacimiento", query = "SELECT p FROM Persona p WHERE p.fechaNacimiento = :fechaNacimiento")})
+    @NamedQuery(name = "Persona.findBySexo", query = "SELECT p FROM Persona p WHERE p.sexo = :sexo")})
+
 public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,11 +57,7 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 2)
     @Column(name = "sexo")
     private String sexo;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "fechaNacimiento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaNacimiento;
+ 
 
     public Persona() {
     }
@@ -71,12 +66,12 @@ public class Persona implements Serializable {
         this.codigoPersona = codigoPersona;
     }
 
-    public Persona(Integer codigoPersona, String nombres, String apellidos, String sexo, Date fechaNacimiento) {
+    public Persona(Integer codigoPersona, String nombres, String apellidos, String sexo) {
         this.codigoPersona = codigoPersona;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.sexo = sexo;
-        this.fechaNacimiento = fechaNacimiento;
+       
     }
 
     public Integer getCodigoPersona() {
@@ -111,13 +106,7 @@ public class Persona implements Serializable {
         this.sexo = sexo;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
 
     @Override
     public int hashCode() {

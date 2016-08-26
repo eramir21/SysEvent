@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+
+ <ui:composition template="WEB-INF/templates/temphtml5.xhtml">
+
+
+        <ui:define name="body">
+            <section>
+            <div class="container">
+                <div class="shopper-informations">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="shopper-info">
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-5 clearfix">
+                            <div class="bill-to">
+                                <p>Registrate</p>
+                                <p>Datos Personales</p>
+                                
+                                <div class="form-one">
+                                    <form jsf:id="form1">
+                                       <input jsf:id="nombres" type="text" placeholder="Ingresa tus Nombres" jsf:value="#{usuarioController.persona.nombres}"/>
+                                       <input jsf:id="apellidos" type="text" placeholder="Ingresa tus Apellidos" jsf:value="#{usuarioController.persona.apellidos}"/>
+                                       <input jsf:id="sexo" type="text" placeholder="Sexo" jsf:value="#{usuarioController.persona.sexo}"/>
+                                       <p>Datos de la Cuenta</p>
+                                       <input jsf:id="tipo" type="text" placeholder="Tipo cuenta A/O" jsf:value="#{usuarioController.usuario.tipo}"/>
+                                       <input jsf:id="usuario" type="text" placeholder="Tu Usuario" jsf:value="#{usuarioController.usuario.usuario}"/>
+                                       <input jsf:value="#{usuarioController.usuario.clave}" placeholder="Tu Clave" type="password" required="true"  name="pwd1" onchange="form.pwd2.pattern = this.value;"/>
+                                       <input title="repite el clave correcta" type="password" placeholder="Repite Tu Clave" required="true"  name="pwd2"/>
+                                       <button type="Submit"  jsf:actionListener="#{usuarioController.registrar()}" class="btn btn-default btn-primary">Registrarse</button>
+                                   </form>    
+                                </div>
+                                                     
+                               
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </section>    
+        </ui:define>
+
+    </ui:composition>
+
+</html>
