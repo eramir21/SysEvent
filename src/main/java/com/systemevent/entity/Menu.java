@@ -26,29 +26,34 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Entity
 @Table(name = "menu")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m")})
+    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m"),
+    @NamedQuery(name = "Menu.findByCodigoMenu", query = "SELECT m FROM Menu m WHERE m.codigoMenu = :codigoMenu"),
+    @NamedQuery(name = "Menu.findByNombre", query = "SELECT m FROM Menu m WHERE m.nombre = :nombre"),
+    @NamedQuery(name = "Menu.findByUrl", query = "SELECT m FROM Menu m WHERE m.url = :url"),
+    @NamedQuery(name = "Menu.findByTipo", query = "SELECT m FROM Menu m WHERE m.tipo = :tipo"),
+    @NamedQuery(name = "Menu.findByTipoUsuario", query = "SELECT m FROM Menu m WHERE m.tipoUsuario = :tipoUsuario"),
+    @NamedQuery(name = "Menu.findByEstado", query = "SELECT m FROM Menu m WHERE m.estado = :estado")})
 public class Menu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo_menu")
-    private int codigoMenu;
+    private Short codigoMenu;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombre")
     private String nombre;
-   
+    @Size(max = 50)
     @Column(name = "url")
     private String url;
-    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
@@ -62,7 +67,7 @@ public class Menu implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estado")
-    private boolean estado = true;
+    private boolean estado;
     @OneToMany(mappedBy = "codigoSubmenu")
     private Collection<Menu> menuCollection;
     @JoinColumn(name = "codigo_submenu", referencedColumnName = "codigo_menu")
@@ -72,11 +77,11 @@ public class Menu implements Serializable {
     public Menu() {
     }
 
-    public Menu(int codigoMenu) {
+    public Menu(Short codigoMenu) {
         this.codigoMenu = codigoMenu;
     }
 
-    public Menu(int codigoMenu, String nombre, String tipo, String tipoUsuario, boolean estado) {
+    public Menu(Short codigoMenu, String nombre, String tipo, String tipoUsuario, boolean estado) {
         this.codigoMenu = codigoMenu;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -84,11 +89,11 @@ public class Menu implements Serializable {
         this.estado = estado;
     }
 
-    public int getCodigoMenu() {
+    public Short getCodigoMenu() {
         return codigoMenu;
     }
 
-    public void setCodigoMenu(int codigoMenu) {
+    public void setCodigoMenu(Short codigoMenu) {
         this.codigoMenu = codigoMenu;
     }
 
@@ -107,8 +112,7 @@ public class Menu implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-    
-    
+
     public String getTipo() {
         return tipo;
     }
@@ -150,7 +154,25 @@ public class Menu implements Serializable {
         this.codigoSubmenu = codigoSubmenu;
     }
 
-  
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (codigoMenu != null ? codigoMenu.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Menu)) {
+            return false;
+        }
+        Menu other = (Menu) object;
+        if ((this.codigoMenu == null && other.codigoMenu != null) || (this.codigoMenu != null && !this.codigoMenu.equals(other.codigoMenu))) {
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public String toString() {

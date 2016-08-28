@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Entity
 @Table(name = "producto")
@@ -69,9 +69,9 @@ public class Producto implements Serializable {
     private BigDecimal precioUnitario;
     @ManyToMany(mappedBy = "productoCollection")
     private Collection<TipoEvento> tipoEventoCollection;
-    @JoinColumn(name = "codigo_proveedor", referencedColumnName = "codigo_proveedor")
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     @ManyToOne(optional = false)
-    private Proveedor codigoProveedor;
+    private Persona idPersona;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
     private Collection<ProductoEvento> productoEventoCollection;
 
@@ -139,12 +139,12 @@ public class Producto implements Serializable {
         this.tipoEventoCollection = tipoEventoCollection;
     }
 
-    public Proveedor getCodigoProveedor() {
-        return codigoProveedor;
+    public Persona getIdPersona() {
+        return idPersona;
     }
 
-    public void setCodigoProveedor(Proveedor codigoProveedor) {
-        this.codigoProveedor = codigoProveedor;
+    public void setIdPersona(Persona idPersona) {
+        this.idPersona = idPersona;
     }
 
     @XmlTransient

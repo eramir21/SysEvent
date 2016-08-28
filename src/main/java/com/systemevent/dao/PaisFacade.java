@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Stateless
 public class PaisFacade extends AbstractFacade<Pais> {
@@ -27,8 +27,5 @@ public class PaisFacade extends AbstractFacade<Pais> {
     public PaisFacade() {
         super(Pais.class);
     }
-    
-    
-    
     
 }

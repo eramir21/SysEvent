@@ -27,13 +27,12 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Entity
 @Table(name = "municipio")
 @XmlRootElement
 @NamedQueries({
-   
     @NamedQuery(name = "Municipio.findAll", query = "SELECT m FROM Municipio m"),
     @NamedQuery(name = "Municipio.findByCodigoMunicipio", query = "SELECT m FROM Municipio m WHERE m.codigoMunicipio = :codigoMunicipio"),
     @NamedQuery(name = "Municipio.findByNombre", query = "SELECT m FROM Municipio m WHERE m.nombre = :nombre")})
@@ -50,14 +49,12 @@ public class Municipio implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoMunicipio")
-    private Collection<Cliente> clienteCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoMunicipio")
     private Collection<Evento> eventoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoMunicipio")
+    private Collection<Persona> personaCollection;
     @JoinColumn(name = "codigo_estado", referencedColumnName = "codigo_estado")
     @ManyToOne(optional = false)
     private Estado codigoEstado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoMunicipio")
-    private Collection<Proveedor> proveedorCollection;
 
     public Municipio() {
     }
@@ -88,15 +85,6 @@ public class Municipio implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Cliente> getClienteCollection() {
-        return clienteCollection;
-    }
-
-    public void setClienteCollection(Collection<Cliente> clienteCollection) {
-        this.clienteCollection = clienteCollection;
-    }
-
-    @XmlTransient
     public Collection<Evento> getEventoCollection() {
         return eventoCollection;
     }
@@ -105,21 +93,21 @@ public class Municipio implements Serializable {
         this.eventoCollection = eventoCollection;
     }
 
+    @XmlTransient
+    public Collection<Persona> getPersonaCollection() {
+        return personaCollection;
+    }
+
+    public void setPersonaCollection(Collection<Persona> personaCollection) {
+        this.personaCollection = personaCollection;
+    }
+
     public Estado getCodigoEstado() {
         return codigoEstado;
     }
 
     public void setCodigoEstado(Estado codigoEstado) {
         this.codigoEstado = codigoEstado;
-    }
-
-    @XmlTransient
-    public Collection<Proveedor> getProveedorCollection() {
-        return proveedorCollection;
-    }
-
-    public void setProveedorCollection(Collection<Proveedor> proveedorCollection) {
-        this.proveedorCollection = proveedorCollection;
     }
 
     @Override
@@ -144,7 +132,7 @@ public class Municipio implements Serializable {
 
     @Override
     public String toString() {
-        return nombre;
+        return "com.systemevent.entity.Municipio[ codigoMunicipio=" + codigoMunicipio + " ]";
     }
     
 }

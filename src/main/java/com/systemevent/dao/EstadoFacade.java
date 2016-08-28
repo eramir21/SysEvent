@@ -6,15 +6,13 @@
 package com.systemevent.dao;
 
 import com.systemevent.entity.Estado;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Stateless
 public class EstadoFacade extends AbstractFacade<Estado> {
@@ -28,17 +26,6 @@ public class EstadoFacade extends AbstractFacade<Estado> {
 
     public EstadoFacade() {
         super(Estado.class);
-    }
-    
-    
-     public List<Estado> DamelosEstados(int idPais) {
-        StringBuilder sql = new StringBuilder();
-        sql.append("SELECT * estado WHERE codigo_pais =: codepais");
-        Query query = getEntityManager().createQuery(sql.toString());
-        query.setParameter("codepais", idPais);
-        List<Estado> estadoList = query.getResultList();
-        
-       return estadoList;
     }
     
 }

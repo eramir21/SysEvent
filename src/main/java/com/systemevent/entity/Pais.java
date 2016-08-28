@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Entity
 @Table(name = "pais")
@@ -53,13 +53,11 @@ public class Pais implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoPais")
-    private Collection<Cliente> clienteCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoPais")
     private Collection<Estado> estadoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoPais")
     private Collection<Evento> eventoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoPais")
-    private Collection<Proveedor> proveedorCollection;
+    private Collection<Persona> personaCollection;
 
     public Pais() {
     }
@@ -99,15 +97,6 @@ public class Pais implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Cliente> getClienteCollection() {
-        return clienteCollection;
-    }
-
-    public void setClienteCollection(Collection<Cliente> clienteCollection) {
-        this.clienteCollection = clienteCollection;
-    }
-
-    @XmlTransient
     public Collection<Estado> getEstadoCollection() {
         return estadoCollection;
     }
@@ -126,12 +115,12 @@ public class Pais implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Proveedor> getProveedorCollection() {
-        return proveedorCollection;
+    public Collection<Persona> getPersonaCollection() {
+        return personaCollection;
     }
 
-    public void setProveedorCollection(Collection<Proveedor> proveedorCollection) {
-        this.proveedorCollection = proveedorCollection;
+    public void setPersonaCollection(Collection<Persona> personaCollection) {
+        this.personaCollection = personaCollection;
     }
 
     @Override
@@ -154,10 +143,9 @@ public class Pais implements Serializable {
         return true;
     }
 
-    /*---Retorna el nombre del Pais para ser mostrado en la vista del select----*/
     @Override
     public String toString() {
-        return nombre;
+        return "com.systemevent.entity.Pais[ codigoPais=" + codigoPais + " ]";
     }
     
 }

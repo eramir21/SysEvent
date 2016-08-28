@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Entity
 @Table(name = "tipo_evento")
@@ -125,7 +125,7 @@ public class TipoEvento implements Serializable {
 
     @Override
     public String toString() {
-        return descripcion;
+        return "com.systemevent.entity.TipoEvento[ codigoTipoEvento=" + codigoTipoEvento + " ]";
     }
     
 }

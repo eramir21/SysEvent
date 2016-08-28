@@ -41,7 +41,7 @@ public class PdfEvento {
             //String name="C:\\Users\\Jose_Gascon\\Documents\\NetBeansProjects\\SystemEvent\\target\\SystemEvent-1.0-SNAPSHOT\\reports\\document-report.pdf";
             Document document = new Document();
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(name));
-            FormatoPDF encabezado = new FormatoPDF(event.getIdCliente().getNombre());
+            FormatoPDF encabezado = new FormatoPDF("");
             Paragraph parrafo,datos,datos1;
             int i;
             

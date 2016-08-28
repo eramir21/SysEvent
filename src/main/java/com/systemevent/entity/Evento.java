@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Entity
 @Table(name = "evento")
@@ -73,6 +73,9 @@ public class Evento implements Serializable {
     @NotNull
     @Column(name = "estado")
     private Character estado;
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
+    @ManyToOne(optional = false)
+    private Persona idPersona;
     @JoinColumn(name = "codigo_tipo_evento", referencedColumnName = "codigo_tipo_evento")
     @ManyToOne(optional = false)
     private TipoEvento codigoTipoEvento;
@@ -85,9 +88,6 @@ public class Evento implements Serializable {
     @JoinColumn(name = "codigo_pais", referencedColumnName = "codigo_pais")
     @ManyToOne(optional = false)
     private Pais codigoPais;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false)
-    private Cliente idCliente;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "evento")
     private Collection<ProductoEvento> productoEventoCollection;
 
@@ -155,6 +155,14 @@ public class Evento implements Serializable {
         this.estado = estado;
     }
 
+    public Persona getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(Persona idPersona) {
+        this.idPersona = idPersona;
+    }
+
     public TipoEvento getCodigoTipoEvento() {
         return codigoTipoEvento;
     }
@@ -185,14 +193,6 @@ public class Evento implements Serializable {
 
     public void setCodigoPais(Pais codigoPais) {
         this.codigoPais = codigoPais;
-    }
-
-    public Cliente getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
     }
 
     @XmlTransient

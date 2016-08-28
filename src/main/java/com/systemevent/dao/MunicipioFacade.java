@@ -6,15 +6,13 @@
 package com.systemevent.dao;
 
 import com.systemevent.entity.Municipio;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
- * @author Jose_Gascon
+ * @author lobru1104
  */
 @Stateless
 public class MunicipioFacade extends AbstractFacade<Municipio> {
@@ -29,7 +27,5 @@ public class MunicipioFacade extends AbstractFacade<Municipio> {
     public MunicipioFacade() {
         super(Municipio.class);
     }
-    
-   
     
 }
