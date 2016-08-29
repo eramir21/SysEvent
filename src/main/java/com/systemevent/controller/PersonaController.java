@@ -1,15 +1,15 @@
 package com.systemevent.controller;
 
-import com.systemevent.entity.Producto;
+import com.systemevent.dao.PersonaFacade;
+import com.systemevent.entity.Persona;
 import com.systemevent.jsfclass.util.JsfUtil;
 import com.systemevent.jsfclass.util.JsfUtil.PersistAction;
-import com.systemevent.dao.ProductoFacade;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
@@ -19,30 +19,23 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@Named("productoController")
+@Named("personaController")
 @SessionScoped
-public class ProductoController implements Serializable {
+public class PersonaController implements Serializable {
 
     @EJB
-    private com.systemevent.dao.ProductoFacade ejbFacade;
-    private List<Producto> items = null;
-    private Producto selected;
+    private com.systemevent.dao.PersonaFacade ejbFacade;
+    private List<Persona> items = null;
+    private Persona selected;
 
-    
-    @PostConstruct
-    public void init(){
-        selected = new Producto();
-        
-    }
-    
-    public ProductoController() {
+    public PersonaController() {
     }
 
-    public Producto getSelected() {
+    public Persona getSelected() {
         return selected;
     }
 
-    public void setSelected(Producto selected) {
+    public void setSelected(Persona selected) {
         this.selected = selected;
     }
 
@@ -52,44 +45,40 @@ public class ProductoController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private ProductoFacade getFacade() {
+    private PersonaFacade getFacade() {
         return ejbFacade;
     }
 
-    public Producto prepareCreate() {
-        selected = new Producto();
+    public Persona prepareCreate() {
+        selected = new Persona();
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ProductoCreated"));
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("PersonaCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("ProductoUpdated"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("PersonaUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("ProductoDeleted"));
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("PersonaDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
-    public List<Producto> getItems() {
+    public List<Persona> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
         return items;
-    }
-    
-    public String consultarForm() {
-       return "consulta_producto_form";
     }
 
     private void persist(PersistAction persistAction, String successMessage) {
@@ -120,29 +109,29 @@ public class ProductoController implements Serializable {
         }
     }
 
-    public Producto getProducto(java.lang.Integer id) {
+    public Persona getPersona(java.lang.Integer id) {
         return getFacade().find(id);
     }
 
-    public List<Producto> getItemsAvailableSelectMany() {
+    public List<Persona> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
 
-    public List<Producto> getItemsAvailableSelectOne() {
+    public List<Persona> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Producto.class)
-    public static class ProductoControllerConverter implements Converter {
+    @FacesConverter(forClass = Persona.class)
+    public static class PersonaControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            ProductoController controller = (ProductoController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "productoController");
-            return controller.getProducto(getKey(value));
+            PersonaController controller = (PersonaController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "personaController");
+            return controller.getPersona(getKey(value));
         }
 
         java.lang.Integer getKey(String value) {
@@ -162,11 +151,11 @@ public class ProductoController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Producto) {
-                Producto o = (Producto) object;
-                return getStringKey(o.getCodigoProducto());
+            if (object instanceof Persona) {
+                Persona o = (Persona) object;
+                return getStringKey(o.getIdPersona());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Producto.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Persona.class.getName()});
                 return null;
             }
         }
