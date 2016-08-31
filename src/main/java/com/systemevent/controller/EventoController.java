@@ -84,18 +84,18 @@ public class EventoController implements Serializable {
  
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("EventoCreated"));
+        persist(PersistAction.CREATE, "Evento Creado");
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("EventoUpdated"));
+        persist(PersistAction.UPDATE, "Evento Modificado");
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("EventoDeleted"));
+        persist(PersistAction.DELETE, "Evento Eliminado");
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.

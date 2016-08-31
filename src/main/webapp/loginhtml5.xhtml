@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+          
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+
+   <ui:composition template="WEB-INF/templates/template.xhtml">
+
+
+        <ui:define name="body">
+            <section>
+            <div class="container">
+                <div class="shopper-informations">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="shopper-info">
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-5 clearfix">
+                            <div class="bill-to">
+                                <p>Iniciar Sesion</p>
+                               
+                                <div class="form-one">
+                                <form jsf:id="form1">
+                                    <input jsf:id="email" type="email" placeholder="Email" jsf:value="#{loginController.persona.email}"/>
+                                    <input jsf:id="clave" type="password" placeholder="*******" jsf:value="#{loginController.persona.clave}"/>
+                                   
+                                    <button type="Submit"  jsf:action="#{loginController.iniciarSesion()}" class="btn btn-default btn-primary">Ingresar</button>
+                                </form>
+                                </div>
+                                                     
+                               
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </section>    
+        </ui:define>
+
+    </ui:composition>
+
+</html>

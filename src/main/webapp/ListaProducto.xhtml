@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <ui:composition template="WEB-INF/templates/temphtml5.xhtml">
+
+
+        <ui:define name="body">
+            <div class="container">
+                <section>                
+
+                    <div class="rwd">
+                        <form jsf:id="in">
+                            
+                            <table class="rwd_auto" >
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio Unitario</th>
+                                        <th>Modificar</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <ui:repeat var="producto" value="#{productoController.items}" varStatus="status">
+                                    <tbody>
+                                        <tr>
+                                            <td>#{producto.nombre}</td>
+                                            <td>#{producto.descripcion}</td>
+                                            <td>#{producto.cantidad}</td>
+                                            <td>#{producto.precioUnitario}</td>
+                                            <td><a href='ModificarProducto.xhtml?id="#{producto.codigoProducto}"' >valor</a></td>
+                                            <!--<a href='modificar_usuario.php?username=".$row["username"]."'>-->
+                                            <td><button type="submit" jsf:id="eliminar" jsf:actionListener="#{productoController.destroy}" class="btn btn-default btn-primary" >Eliminar</button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </ui:repeat>    
+                            </table>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+
+        </ui:define>
+
+    </ui:composition>
+
+</html>

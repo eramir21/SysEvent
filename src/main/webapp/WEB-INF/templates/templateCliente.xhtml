@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <head jsf:id="head">
         <meta charset="utf-8"/>
@@ -25,6 +27,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png"/>
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png"/>
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"/>
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
     </head>
 
     <body jsf:id="body">
@@ -41,7 +44,7 @@
                         <div class="col-sm-6">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-phone"></i>+58 0212 5320237</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i>+58 0212 1234567</a></li>
                                     <li><a href="#"><i class="fa fa-envelope"></i> info@sysevent.com</a></li>
                                 </ul>
                             </div>
@@ -69,7 +72,7 @@
                                 <a href="index.xhtml"><img src="images/eventos/syseventLogo.jpg" alt="" /></a>
                             </div>
                             <div class="btn-group pull-right">
-                                <div class="btn-group">
+<!--                                <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                         USA
                                         <span class="caret"></span>
@@ -89,17 +92,32 @@
                                         <li><a href="#">Canadian Dollar</a></li>
                                         <li><a href="#">Pound</a></li>
                                     </ul>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="col-sm-8">
-                            <div class="shop-menu pull-right">
+                            <div class="shop-menu1 pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="./CrearUsuarioCliente.xhtml"><i class="fa fa-user"></i>Registrate</a></li>
-                                    <li><a href="./ListaEvento.xhtml"><i class="fa fa-star"></i>Eventos</a></li>
-                                    <li><a href="./CrearProducto.xhtml"><i class="fa fa-crosshairs"></i> Crea un Producto</a></li>
+<!--                                  <li><a href="./CrearUsuarioCliente.xhtml"><i class="fa fa-user"></i>Registrate</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="./CrearPersona.xhtml">Cliente</a></li>
+                                            <li><a href="./CrearPersonaP.xhtml">Empresa</a></li> 
+                                        </ul>
+                                   </li> -->
+<!--                                    <li><a href="./ListaEvento.xhtml"><i class="fa fa-star"></i>Eventos</a></li>
+                                    <li><a href="./CrearProducto.xhtml"><i class="fa fa-crosshairs"></i> Crea un Producto</a></li>-->
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                    <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+<!--                                    <li><a href="./loginhtml5.xhtml"><i class="fa fa-lock"></i> Login</a></li>-->
+                                    <li><a href="#">#{menuController.mostrarUsuarioLogeado()}</a></li>
+
+                                    <li>
+                                        <form jsf:id="form1">
+                                       
+                                            <!--<button jsf:actionListener="#{menuController.cerrarSesion()}" class="fa fa-power-off" title="Cerrar Sesión" />-->
+                                        <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" title="Cerrar Sesión" action="/index?faces-redirect=true"/>
+                                       
+                                        </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -125,16 +143,16 @@
                                     <li class="dropdown"><a href="#">Eventos<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
                                             <li><a href="CrearEvento.xhtml">Crea un Evento</a></li>
-                                            <li><a href="product-details.html">Product Details</a></li> 
+                                            <li><a href="./ListaEvento.xhtml">Eventos</a></li> 
                                             <li><a href="checkout.html">Checkout</a></li> 
                                             <li><a href="cart.html">Cart</a></li> 
                                             <li><a href="login.html">Login</a></li> 
                                         </ul>
                                     </li> 
-                                    <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                    <li class="dropdown"><a href="#">Productos<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="blog.html">Blog List</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
+                                            <li><a href="./CrearProducto.xhtml">Crea un Producto</a></li>
+                                            <li><a href="./ListaProducto.xhtml">Productos</a></li>
                                         </ul>
                                     </li> 
                                     <li><a href="404.html">404</a></li>
@@ -182,12 +200,12 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="companyinfo">
-                                <h2><span>e</span>-shopper</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                                <h2><span>S</span>YSEVENT</h2>
+                                <p>Empresa dedicada a la busqueda de proveedores de Eventos.</p>
                             </div>
                         </div>
                         <div class="col-sm-7">
-                            <div class="col-sm-3">
+<!--                            <div class="col-sm-3">
                                 <div class="video-gallery text-center">
                                     <a href="#">
                                         <div class="iframe-img">
@@ -245,19 +263,19 @@
                                     <p>Circle of Hands</p>
                                     <h2>24 DEC 2014</h2>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="col-sm-3">
                             <div class="address">
                                 <img src="images/home/map.png" alt="" />
-                                <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                                <p>Caracas, VE(Venezuela)</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-widget">
+<!--            <div class="footer-widget">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-2">
@@ -321,7 +339,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <div class="footer-bottom">
                 <div class="container">

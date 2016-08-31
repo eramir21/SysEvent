@@ -3,16 +3,6 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-
-    <head jsf:id="head">
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content=""/>
-        <meta name="author" content=""/>
-        <title>Lista Eventos | SysEvent</title>
-
-    </head><!--/head-->
-
     <ui:composition template="WEB-INF/templates/temphtml5.xhtml">
 
 
@@ -31,10 +21,11 @@
                                         <th>Ubicacion</th>
                                         <th>Fecha</th>
                                         <th>PDF</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <ui:repeat var="event" value="#{eventoController.items}" varStatus="status">
-                                    <tbody>
+                                    <tbody >
                                         <tr>
                                             <td>#{event.codigoEvento}</td>
                                             <td>#{event.descripcion}</td>
@@ -42,6 +33,7 @@
                                             <td>#{event.ubicacion}</td>
                                             <td>#{event.fecha}</td>
                                             <td><button jsf:id="pdf" jsf:actionListener="#{eventoController.crearPdf(event.codigoEvento)}">PDF</button></td>
+                                            <td><button type="submit" jsf:id="eliminar" jsf:actionListener="#{eventoController.destroy()}" >Eliminar</button></td>
                                         </tr>
 
                                     </tbody>

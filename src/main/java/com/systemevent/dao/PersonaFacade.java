@@ -6,9 +6,11 @@
 package com.systemevent.dao;
 
 import com.systemevent.entity.Persona;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +28,26 @@ public class PersonaFacade extends AbstractFacade<Persona> {
 
     public PersonaFacade() {
         super(Persona.class);
+    }
+    
+    public Persona iniciarSesion(Persona Per){
+        Persona persona = null;
+        String consulta;
+        try {
+            consulta = "FROM Persona u WHERE u.email = ?1 and u.clave=?2";
+            Query query = em.createQuery(consulta);
+            query.setParameter(1, Per.getEmail());
+            query.setParameter(2, Per.getClave());
+            
+            List<Persona> lista = query.getResultList();
+            if (!lista.isEmpty()) {
+                persona = lista.get(0);
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    
+        return persona;
     }
     
 }
