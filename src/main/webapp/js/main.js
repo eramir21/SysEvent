@@ -28,3 +28,28 @@ $(document).ready(function(){
 		});
 	});
 });
+
+
+$(window).scroll(function() {    
+    posicionarMenu();
+});
+
+function posicionarMenu() {
+    var altura_del_header = $('.header').outerHeight(true);
+    var altura_del_menu = $('.header-bottom').outerHeight(true);
+
+    if ($(window).scrollTop() >= altura_del_header){
+        $('.header-bottom').css(
+            'background','#333'
+        );
+        $('.header-bottom').addClass('fixed');
+        $('.right_content').css('margin-top', (altura_del_menu) + 'px');
+    } else {
+        //---Cuando esta original
+        $('.header-bottom').removeClass('fixed');
+        $('.right_content').css('margin-top', '0');
+         $('.header-bottom').css(
+            'background','white'
+        );
+    }
+}

@@ -225,6 +225,14 @@ a#scrollUp i{
     padding-top: 30px;
 }
 
+body, html{ margin:0; padding:0;}
+.header{ border-top:1px solid white;background:white; color:#333; height:150px; width:100%; font-family: 'Lobster', cursive; text-align:center}
+.header-bottom{ height:80px; width:100%; background:white; color:white; text-align:center; z-index: 4}
+.right_content{ height:2000px; width:100%; padding-top:20px}
+
+.fixed{position:fixed; top:0}
+
+
 .navbar-collapse.collapse{
     padding-left: 0;
 }
@@ -2524,7 +2532,7 @@ h2.title {
 
 
 
-/*body {margin:0;padding:50px}*/
+/*body {margin:0;padding:0px}*/
 
 h2 {font-size:36px;margin:0 0 10px 0}
 p {margin:0 0 10px 0}

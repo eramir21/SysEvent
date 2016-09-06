@@ -3,11 +3,13 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-
-    <ui:composition template="WEB-INF/templates/temphtml5.xhtml">
+    <head jsf:id="head">
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
+    </head>
+    
+    <ui:composition template="WEB-INF/templates/templateProveedor.xhtml">
 
 
         <ui:define name="body">
@@ -60,7 +62,7 @@
                                                            itemValue="#{codigoPaisItem}"/>
                                         </h:selectOneMenu>
                                         <h:outputLabel value="#{bundle.CreateEventoLabel_idCliente}" for="idCliente" />
-                                        <h:selectOneMenu id="idCliente" value="#{eventoController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_idCliente}">
+                                        <h:selectOneMenu id="idCliente" value="#{eventoController.selected.idPersona}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_idCliente}">
                                             <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
                                                            var="idClienteItem"
                                                            itemValue="#{idClienteItem}"/>

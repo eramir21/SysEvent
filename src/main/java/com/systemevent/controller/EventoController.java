@@ -1,17 +1,10 @@
 package com.systemevent.controller;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.systemevent.entity.Evento;
 import com.systemevent.jsfclass.util.JsfUtil;
 import com.systemevent.jsfclass.util.JsfUtil.PersistAction;
 import com.systemevent.dao.EventoFacade;
 import com.systemevent.jsfclass.util.PdfEvento;
-import com.systemevent.jsfclass.util.Util;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,8 +20,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletResponse;
 
 @Named("eventoController")
 @SessionScoped

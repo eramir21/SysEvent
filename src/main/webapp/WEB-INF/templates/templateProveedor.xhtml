@@ -36,7 +36,7 @@
       <div id="page">
             <div id="head">
                 <ui:insert name="head">
-               <header id="header"><!--header-->
+               <header class="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
                     <div class="row">
@@ -45,7 +45,7 @@
                                 <ul class="nav nav-pills">
                                     <li><a href="#"><i class="fa fa-phone"></i>+58 0212 1234567</a></li>
                                     <li><a href="#"><i class="fa fa-envelope"></i> info@sysevent.com</a></li>
-                                </ul>
+                               </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -100,7 +100,7 @@
                                    <li><a href="#">#{menuController.mostrarUsuarioLogeado()}</a></li>
 
                                     <li>
-                                        <form jsf:id="form1">
+                                        <form jsf:id="form2">
                                        
                                             <!--<button jsf:actionListener="#{menuController.cerrarSesion()}" class="fa fa-power-off" title="Cerrar Sesión" />-->
                                         <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" title="Cerrar Sesión" action="/index?faces-redirect=true"/>
@@ -131,7 +131,7 @@
                                     <li><a href="index.html" class="active">Inicio</a></li>
                                     <li class="dropdown"><a href="#">Eventos<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="CrearEvento.xhtml">Crea un Evento</a></li>
+                                            <li><a href="./CrearEvento.xhtml">Crea un Evento</a></li>
                                             <li><a href="./ListaEvento.xhtml">Eventos</a></li> 
                                             <li><a href="checkout.html">Checkout</a></li> 
                                             <li><a href="cart.html">Cart</a></li> 
@@ -144,7 +144,8 @@
                                             <li><a href="./ListaProducto.xhtml">Productos</a></li>
                                         </ul>
                                     </li> 
-                                    <li><a href="404.html">Reportes</a></li>
+                                   
+                                    <li><a href="new.xhtml">Reportes</a></li>
                                     <li><a href="404.html">Clientes</a></li>
                                     <li><a href="contact-us.html">Contact</a></li>
                                 </ul>

@@ -7,13 +7,14 @@ import com.systemevent.entity.Persona;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class LoginController implements Serializable{
     
     @EJB
@@ -36,16 +37,16 @@ public class LoginController implements Serializable{
  
     
     public String iniciarSesion(){
-        Persona per;
+        Persona us;
         String redireccion = null;
         try {
-            per = EJBpersona.iniciarSesion(persona);
-            if (per != null) {
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("persona",per);
-                //redireccion = "CrearProducto?faces-redirect=true";
+            us = EJBpersona.iniciarSesion(persona);
+            if (us != null) {
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario",us);
+                //redireccion = "PrincipalProveedor?faces-redirect=true";
                 
-               Persona pera = (Persona) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("persona");
-                switch (per.getTipoUsuario()) {
+               Persona pera = (Persona) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+                switch (pera.getTipoUsuario()) {
                     case "C":
                         redireccion = "PrincipalCliente?faces-redirect=true";
                         break;                

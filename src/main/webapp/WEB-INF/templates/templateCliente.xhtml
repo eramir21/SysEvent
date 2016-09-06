@@ -4,8 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <head jsf:id="head">
         <meta charset="utf-8"/>
@@ -37,7 +36,7 @@
       <div id="page">
             <div id="head">
                 <ui:insert name="head">
-               <header id="header"><!--header-->
+               <header class="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
                     <div class="row">
@@ -140,22 +139,21 @@
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="index.html" class="active">Inicio</a></li>
-                                    <li class="dropdown"><a href="#">Eventos<i class="fa fa-angle-down"></i></a>
+                                    <li class="dropdown"><a href="#">Hacer Eventos<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="CrearEvento.xhtml">Crea un Evento</a></li>
-                                            <li><a href="./ListaEvento.xhtml">Eventos</a></li> 
-                                            <li><a href="checkout.html">Checkout</a></li> 
-                                            <li><a href="cart.html">Cart</a></li> 
-                                            <li><a href="login.html">Login</a></li> 
+                                            <li><a href="#">Crea un Evento</a></li>
+                                            <li><a href="#">Eventos</a></li> 
+                                             
                                         </ul>
                                     </li> 
-                                    <li class="dropdown"><a href="#">Productos<i class="fa fa-angle-down"></i></a>
+                                    <li class="dropdown"><a href="#">Ver Productos<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="./CrearProducto.xhtml">Crea un Producto</a></li>
-                                            <li><a href="./ListaProducto.xhtml">Productos</a></li>
+                                            <li><a href="#">Crea un Producto</a></li>
+                                            <li><a href="#">Productos</a></li>
                                         </ul>
                                     </li> 
-                                    <li><a href="404.html">404</a></li>
+                                     <li> <p:menubar id="menubar" model="#{menuController.model}"></p:menubar></li>
+                                    <li><a href="404.html">Ver mi Evento</a></li>
                                     <li><a href="contact-us.html">Contact</a></li>
                                 </ul>
                             </div>
