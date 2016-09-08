@@ -1,7 +1,6 @@
 package com.systemevent.controller;
 
 import com.systemevent.dao.PersonaFacade;
-import com.systemevent.entity.Evento;
 import com.systemevent.entity.Persona;
 import com.systemevent.jsfclass.util.JsfUtil;
 import com.systemevent.jsfclass.util.JsfUtil.PersistAction;
@@ -15,7 +14,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -24,6 +22,7 @@ import javax.faces.view.ViewScoped;
 
 @Named("personaController")
 @ViewScoped
+
 public class PersonaController implements Serializable {
 
     @EJB

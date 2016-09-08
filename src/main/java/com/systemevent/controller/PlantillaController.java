@@ -4,7 +4,6 @@ package com.systemevent.controller;
 
 import com.systemevent.entity.Persona;
 import java.io.Serializable;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;

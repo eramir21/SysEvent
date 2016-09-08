@@ -20,9 +20,10 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.view.ViewScoped;
 
 @Named("eventoController")
-@SessionScoped
+@ViewScoped
 public class EventoController implements Serializable {
 
     @EJB

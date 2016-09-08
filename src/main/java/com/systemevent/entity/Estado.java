@@ -143,7 +143,7 @@ public class Estado implements Serializable {
 
     @Override
     public String toString() {
-        return "com.systemevent.entity.Estado[ codigoEstado=" + codigoEstado + " ]";
+        return nombre;
     }
     
 }

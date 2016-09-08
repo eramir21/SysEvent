@@ -132,7 +132,7 @@ public class Municipio implements Serializable {
 
     @Override
     public String toString() {
-        return "com.systemevent.entity.Municipio[ codigoMunicipio=" + codigoMunicipio + " ]";
+        return nombre;
     }
     
 }

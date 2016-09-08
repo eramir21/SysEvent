@@ -145,7 +145,7 @@ public class Pais implements Serializable {
 
     @Override
     public String toString() {
-        return "com.systemevent.entity.Pais[ codigoPais=" + codigoPais + " ]";
+        return nombre;
     }
     
 }

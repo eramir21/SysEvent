@@ -3,12 +3,10 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
-    <head jsf:id="head">
-        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
-    </head>
-    
+    <body>
     <ui:composition template="WEB-INF/templates/templateProveedor.xhtml">
 
 
@@ -30,42 +28,45 @@
                                 </div>
                                 <div class="form-two">
                                     <form jsf:id="form1">
-                                        <input jsf:id="codigoEvento" type="number" placeholder="Codigo Evento" jsf:value="#{eventoController.selected.codigoEvento}"/>
+                                        
                                         <input jsf:id="descripcion" type="text" placeholder="Descripcion del Evento" jsf:value="#{eventoController.selected.descripcion}"/>
                                         <input jsf:id="cantidadPersonas" type="number" placeholder="Cantidad de Invitados" jsf:value="#{eventoController.selected.cantidadPersonas}"/>
                                         <input jsf:id="ubicacion" type="text" placeholder="Ubicacion del Evento" jsf:value="#{eventoController.selected.ubicacion}"/>
-                                        <input jsf:id="fecha" type="text" placeholder="Fecha de el Evento" jsf:value="#{eventoController.selected.fecha}"/>
-                                        <input jsf:id="status" type="text" placeholder="Status de el evento" jsf:value="#{eventoController.selected.estado}"/>
+                                       
+                                        <p:outputLabel value="Fecha" for="fecha" />
+                                        <p:calendar id="fecha" pattern="MM/dd/yyyy" locale="es" value="#{eventoController.selected.fecha}" title="#{bundle.EditEventoTitle_fecha}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fecha}" showOn="button"/>
+                       
+                                        <input jsf:id="status" value="s" type="hidden" placeholder="Status de el evento" jsf:value="#{eventoController.selected.estado}"/>
                                         
-                                        <h:outputLabel value="#{bundle.CreateEventoLabel_codigoTipoEvento}" for="codigoTipoEvento" />
+                                        <h:outputLabel value="Tipo de Evento" for="codigoTipoEvento" />
                                         <h:selectOneMenu id="codigoTipoEvento" value="#{eventoController.selected.codigoTipoEvento}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoTipoEvento}">
                                             <f:selectItems value="#{tipoEventoController.itemsAvailableSelectOne}"
                                                            var="codigoTipoEventoItem"
                                                            itemValue="#{codigoTipoEventoItem}"/>
                                         </h:selectOneMenu>
-                                         <h:outputLabel value="#{bundle.CreateEventoLabel_codigoMunicipio}" for="codigoMunicipio" />
+                                         <h:outputLabel value="Municipio" for="codigoMunicipio" />
                                         <h:selectOneMenu id="codigoMunicipio" value="#{eventoController.selected.codigoMunicipio}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoMunicipio}">
                                             <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
                                                            var="codigoMunicipioItem"
                                                            itemValue="#{codigoMunicipioItem}"/>
                                         </h:selectOneMenu>
-                                        <h:outputLabel value="#{bundle.CreateEventoLabel_codigoEstado}" for="codigoEstado" />
+                                        <h:outputLabel value="Estado" for="codigoEstado" />
                                         <h:selectOneMenu id="codigoEstado" value="#{eventoController.selected.codigoEstado}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoEstado}">
                                             <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"
                                                            var="codigoEstadoItem"
                                                            itemValue="#{codigoEstadoItem}"/>
                                         </h:selectOneMenu>
-                                        <h:outputLabel value="#{bundle.CreateEventoLabel_codigoPais}" for="codigoPais" />
+                                        <h:outputLabel value="Pais" for="codigoPais" />
                                         <h:selectOneMenu id="codigoPais" value="#{eventoController.selected.codigoPais}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_codigoPais}">
                                             <f:selectItems value="#{paisController.itemsAvailableSelectOne}"
                                                            var="codigoPaisItem"
                                                            itemValue="#{codigoPaisItem}"/>
                                         </h:selectOneMenu>
-                                        <h:outputLabel value="#{bundle.CreateEventoLabel_idCliente}" for="idCliente" />
-                                        <h:selectOneMenu id="idCliente" value="#{eventoController.selected.idPersona}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_idCliente}">
-                                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
-                                                           var="idClienteItem"
-                                                           itemValue="#{idClienteItem}"/>
+                                        <h:outputLabel value="Cliente" for="idPersona" />
+                                        <h:selectOneMenu id="idPersona" value="#{eventoController.selected.idPersona}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_idCliente}">
+                                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
+                                                           var="idPersonaItem"
+                                                           itemValue="#{idPersonaItem}"/>
                                         </h:selectOneMenu>
 
                                         <button type="Submit" jsf:actionListener="#{eventoController.create()}" class="btn btn-default btn-primary">Agregar Evento</button>
@@ -81,5 +82,5 @@
         </ui:define>
 
     </ui:composition>
-
+</body>
 </html>

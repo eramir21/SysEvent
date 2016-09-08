@@ -14,7 +14,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 @Named
-@SessionScoped
+@ViewScoped
 public class LoginController implements Serializable{
     
     @EJB
@@ -42,6 +42,7 @@ public class LoginController implements Serializable{
         try {
             us = EJBpersona.iniciarSesion(persona);
             if (us != null) {
+                 //Almacenar en la sesión de JSF
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario",us);
                 //redireccion = "PrincipalProveedor?faces-redirect=true";
                 

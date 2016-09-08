@@ -260,7 +260,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "com.systemevent.entity.Persona[ idPersona=" + idPersona + " ]";
+        return email;
     }
     
 }

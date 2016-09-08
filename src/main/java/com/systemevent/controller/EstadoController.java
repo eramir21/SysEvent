@@ -20,9 +20,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.faces.model.SelectItem;
+import javax.faces.view.ViewScoped;
 
 @Named("estadoController")
-@SessionScoped
+@ViewScoped
 public class EstadoController implements Serializable {
 
     @EJB
