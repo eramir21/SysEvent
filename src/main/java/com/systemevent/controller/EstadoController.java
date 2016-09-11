@@ -23,7 +23,7 @@ import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
 
 @Named("estadoController")
-@ViewScoped
+@SessionScoped
 public class EstadoController implements Serializable {
 
     @EJB

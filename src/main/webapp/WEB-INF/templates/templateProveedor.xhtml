@@ -26,7 +26,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png"/>
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png"/>
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"/>
-      
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
     </head>
 
     <body jsf:id="body">
@@ -97,14 +97,11 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                   <li><a href="#"></a></li>
+                                     <li><a href="#">#{menuController.mostrarUsuarioLogeado()}</a></li>
 
                                     <li>
                                         <form jsf:id="form2">
-                                       
-                                            <!--<button jsf:actionListener="#{menuController.cerrarSesion()}" class="fa fa-power-off" title="Cerrar Sesión" />-->
-                                        <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" title="Cerrar Sesión" action="/index?faces-redirect=true"/>
-                                       
+                                            <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" title="Cerrar Sesión" action="/index?faces-redirect=true"/>
                                         </form>
                                     </li>
                                 </ul>
@@ -131,7 +128,6 @@
                                     <li><a href="index.html" class="active">Inicio</a></li>
                                     <li class="dropdown"><a href="#">Eventos<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="./CrearEvento.xhtml">Crea un Evento</a></li>
                                             <li><a href="./ListaEvento.xhtml">Eventos</a></li> 
                                             <li><a href="checkout.html">Checkout</a></li> 
                                             <li><a href="cart.html">Cart</a></li> 
