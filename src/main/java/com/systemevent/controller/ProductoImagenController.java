@@ -18,6 +18,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import org.primefaces.model.UploadedFile;
 
 @Named("productoImagenController")
 @SessionScoped
@@ -27,6 +28,15 @@ public class ProductoImagenController implements Serializable {
     private com.systemevent.dao.ProductoImagenFacade ejbFacade;
     private List<ProductoImagen> items = null;
     private ProductoImagen selected;
+    private UploadedFile file;
+
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
 
     public ProductoImagenController() {
     }
@@ -47,6 +57,17 @@ public class ProductoImagenController implements Serializable {
 
     private ProductoImagenFacade getFacade() {
         return ejbFacade;
+    }
+    
+    
+    public void upload(){
+        try {
+            if(file != null){
+                
+            
+            }
+        } catch (Exception e) {
+        }
     }
 
     public ProductoImagen prepareCreate() {

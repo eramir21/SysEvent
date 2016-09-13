@@ -21,6 +21,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("eventoController")
 @SessionScoped
 public class EventoController implements Serializable {
@@ -57,7 +58,7 @@ public class EventoController implements Serializable {
     private EventoFacade getFacade() {
         return ejbFacade;
     }
-
+    
     public Evento prepareCreate() {
         selected = new Evento();
         initializeEmbeddableKey();
