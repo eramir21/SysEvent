@@ -219,7 +219,7 @@ a#scrollUp i{
     background:#fff;
 }
 
-
+/* Menu color negro */
 .header-bottom {
     padding-bottom: 30px;
     padding-top: 30px;
@@ -227,7 +227,7 @@ a#scrollUp i{
 
 body, html{ margin:0; padding:0;}
 .header{ border-top:1px solid white;background:white; color:#333; height:150px; width:100%; font-family: 'Lobster', cursive; text-align:center}
-.header-bottom{ height:80px; width:100%; background:white; color:white; text-align:center; z-index: 4}
+.header-bottom{ height:80px; width:100%; background:white; color:white; text-align:center; z-index: 20}
 .right_content{ height:2000px; width:100%; padding-top:20px}
 
 .fixed{position:fixed; top:0}

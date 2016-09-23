@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="WEB-INF/templates/templateCliente.xhtml">
+
+
+        <ui:define name="body">
+            <div class="container">
+                <section>                
+
+                    <div class="rwd">
+                        <form jsf:id="in">
+                            <table class="rwd_auto">
+                                <thead>
+                                    <tr>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad Personas</th>
+                                        <th>Ubicacion</th>
+                                        <th>Fecha</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <ui:repeat var="event" value="#{eventoController.getEvento(menuController.obtenerIdPersona())}" varStatus="status">
+                                    <tbody>
+                                        <tr>
+                                            <td>#{event.descripcion}</td>
+                                            <td>#{event.cantidadPersonas}</td>
+                                            <td>#{event.ubicacion}</td>
+                                            <td>#{event.fecha}</td>
+                                            <td><button type="submit" jsf:id="eliminar" jsf:actionListener="#{eventoController.destroy()}" >Agregar Productos</button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </ui:repeat>    
+                            </table>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+
+        </ui:define>
+
+    </ui:composition>
+
+</html>

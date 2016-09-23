@@ -132,6 +132,20 @@ public class EventoController implements Serializable {
     public Evento getEvento(java.lang.Integer id) {
         return getFacade().find(id);
     }
+    
+    public List<Evento> BuscarEventoId(java.lang.Integer id){
+        if(items == null){
+            items = (List<Evento>) getFacade().find(id);
+        }
+        return items;
+    }
+    
+//    public List<Evento> getItems() {
+//        if (items == null) {
+//            items = getFacade().findAll();
+//        }
+//        return items;
+//    }
 
     public List<Evento> getItemsAvailableSelectMany() {
         return getFacade().findAll();
